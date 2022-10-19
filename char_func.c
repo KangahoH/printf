@@ -1,50 +1,42 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * char_func - char format with function format
- * @format: It's a character string
- * @list: the list of arguments the function _printf is receiving
- * Return: the number of character the function is printing
+ * print_char - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: 1.
  */
-int get_match_func(const char *format, va_list list, st_fmt st_format[])
+int print_char(va_list c)
 {
-	int count = 0, i = 0, j, k = 0, num = 0;
+	unsigned char my_char;
 
-	for (i = 0; format && format[i] != 0; i++)
-	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			count += 1;
-		}
-		else
-		{
-			for (j = 0; st_format[j].fmt; j++)
-			{
-				if (format[i + 1] == st_format[j].fmt[k])
-				{
-					num = st_format[j].func(list);
-					count += num;
-					i++;
-					break;
-				}
-			}
-			if (st_format[j].fmt == NULL && format[i + 1] != ' ')
-			{
-				if (format[i + 1] != 0)
-				{
-					_putchar(format[i]);
-					_putchar(format[i + 1]);
-					count += 2;
-					i++;
-				}
-				else
-					return (-1);
-			}
-		}
-	}
-	if (format == NULL)
-		return (-1);
-	return (count);
-
-
+	my_char = va_arg(c, int);
+	_putchar(my_char);
+	return (1);
 }
+/**
+ * print_char - writes the character s to stdout
+ * @c: The character to print
+ *
+ * Return: 1.
+ */
+int print_char(va_list s)
+{
+    unsigned char my_char;
+
+    my_char = va_arg(s, int);
+    _putchar(my_char);
+    return (1);
+}
+/**
+ * print_porcentage - %
+ *
+ * Return: 1.
+ */
+int print_porcentage(void)
+{
+	_putchar('%');
+	return (1);
+}
+

@@ -1,41 +1,25 @@
-#include "main.h"
-
+nclude "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
- ** func_char - print a char, or nothing if it is not
- ** @list: the list of arguments the funcion id receiving
- ** Return: 1 if it is a char, 0 otherwise
- **/
-int func_char(va_list list)
+ * print_string - writes the character c to stdout
+ * @s: The string to print
+ *
+ * Return: 1.
+ */
+int print_string(va_list s)
 {
-	char c;
+	char *my_string;
+	int  i = 0;
 
-	c = (va_arg(list, int));
-	_putchar(c);
-	return (1);
+	my_string = va_arg(s, char *);
+	if (my_string == NULL)
+		my_string = "(null)";
+	while (my_string[i])
+	{
+		_putchar(my_string[i]);
+		i++;
+	}
+	return (i);
 }
 
-/**
- ** func_char - print a char, or nothing if it is not
- ** @list: the list of arguments the funcion id receiving
- ** Return: 1 if it is a char, 0 otherwise
- **/
-int func_char(va_list list)
-{
-	char s;
-
-	s = (va_arg(list, int));
-	_putchar(s);
-	return (1);
-}
-
-
-/**
- ** func_percent - print the sing percent
- ** @list: the list of arguments the funcion id receiving
- ** Return: 1 as just one of character
- **/
-int func_percent(__attribute__((unused)) va_list list)
-{
-	_putchar('%');
-	return (1);
-}
