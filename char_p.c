@@ -16,27 +16,12 @@ int print_char(va_list c)
 	return (1);
 }
 /**
- * print_char - writes the character s to stdout
- * @c: The character to print
+ * print_percentage - %
  *
  * Return: 1.
  */
-int print_char(va_list s)
-{
-    unsigned char my_char;
-
-    my_char = va_arg(s, int);
-    _putchar(my_char);
-    return (1);
-}
-/**
- * print_porcentage - %
- *
- * Return: 1.
- */
-int print_porcentage(void)
+int print_percentage(void)
 {
 	_putchar('%');
 	return (1);
 }
-
